@@ -4,6 +4,7 @@ import { UpdateAuthorDto } from './dto/update-author.dto';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Author } from './entities/author.entity';
 import { Repository } from 'typeorm';
+import { instanceToPlain } from 'class-transformer';
 
 @Injectable()
 export class AuthorService {
@@ -17,11 +18,7 @@ export class AuthorService {
     if (authorAlreadyExist) {
       throw new ConflictException('User already exists');
     }
-    const author = await this.authorRepo.save(createAuthorDto);
-
-    return {
-      author,
-    };
+    return await this.authorRepo.save(createAuthorDto);
   }
 
   async findByEmail(email: string) {
@@ -29,8 +26,9 @@ export class AuthorService {
     return author;
   }
 
-  findAll() {
-    return this.authorRepo.find();
+  async findAll() {
+    const author = instanceToPlain(await this.authorRepo.find());
+    return { author };
   }
 
   findById(id: string) {

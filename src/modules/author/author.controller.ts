@@ -31,10 +31,7 @@ export class AuthorController {
 
   @Get()
   findAll() {
-    const author = this.authorService.findAll();
-    return {
-      author,
-    };
+    return this.authorService.findAll();
   }
 
   @Get(':id')
