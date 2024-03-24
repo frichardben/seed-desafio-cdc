@@ -6,13 +6,10 @@ import {
   Patch,
   Param,
   Delete,
-  HttpException,
-  HttpStatus,
 } from '@nestjs/common';
 import { AuthorService } from './author.service';
 import { CreateAuthorDto } from './dto/create-author.dto';
 import { UpdateAuthorDto } from './dto/update-author.dto';
-import { AppError } from 'src/common/error/AppError';
 
 @Controller('api/v1/authors')
 export class AuthorController {
@@ -20,13 +17,7 @@ export class AuthorController {
 
   @Post()
   create(@Body() createAuthorDto: CreateAuthorDto) {
-    try {
-      return this.authorService.create(createAuthorDto);
-    } catch (error) {
-      if (error instanceof AppError) {
-        throw new HttpException(error.message, HttpStatus.CONFLICT);
-      }
-    }
+    return this.authorService.create(createAuthorDto);
   }
 
   @Get()
@@ -41,7 +32,7 @@ export class AuthorController {
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateAuthorDto: UpdateAuthorDto) {
-    return this.authorService.update(+id, updateAuthorDto);
+    return this.authorService.update(id, updateAuthorDto);
   }
 
   @Delete(':id')

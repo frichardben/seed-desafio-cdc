@@ -1,4 +1,4 @@
-import { ConflictException, Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateAuthorDto } from './dto/create-author.dto';
 import { UpdateAuthorDto } from './dto/update-author.dto';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -14,29 +14,24 @@ export class AuthorService {
   ) {}
 
   async create(createAuthorDto: CreateAuthorDto) {
-    const authorAlreadyExist = await this.findByEmail(createAuthorDto.email);
-    if (authorAlreadyExist) {
-      throw new ConflictException('User already exists');
-    }
     return await this.authorRepo.save(createAuthorDto);
   }
 
-  async findByEmail(email: string) {
-    const author = await this.authorRepo.findOne({ where: { email } });
+  async findAll() {
+    const authors = instanceToPlain(await this.authorRepo.find());
+    return { authors };
+  }
+
+  async findById(id: string) {
+    const author = await this.authorRepo.findOne({ where: { id } });
+    if (!author) {
+      throw new NotFoundException('Author not found');
+    }
     return author;
   }
 
-  async findAll() {
-    const author = instanceToPlain(await this.authorRepo.find());
-    return { author };
-  }
-
-  findById(id: string) {
-    return this.authorRepo.findOneOrFail({ where: { id } });
-  }
-
-  update(id: number, updateAuthorDto: UpdateAuthorDto) {
-    return `This action updates a #${id} author`;
+  update(id: string, updateAuthorDto: UpdateAuthorDto) {
+    return this.authorRepo.update(id, updateAuthorDto);
   }
 
   remove(id: number) {
