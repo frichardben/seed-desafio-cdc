@@ -1,6 +1,8 @@
 import { Module } from '@nestjs/common';
 import { AuthorModule } from './modules/author/author.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { CategoryModule } from './modules/category/category.module';
+import { IsUniqueConstraint } from './common/validation/is-unique-constraint';
 
 @Module({
   imports: [
@@ -12,8 +14,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       synchronize: true,
     }),
     AuthorModule,
+    CategoryModule,
   ],
   controllers: [],
-  providers: [],
+  providers: [IsUniqueConstraint],
 })
 export class AppModule {}
