@@ -1,5 +1,5 @@
 import { IsEmail, IsNotEmpty, MaxLength } from 'class-validator';
-import { isUnique } from 'src/common/validation/is-unique';
+import { isUnique } from 'src/common/validation';
 export class CreateAuthorDto {
   @IsNotEmpty({ message: 'Name is required' })
   name: string;
