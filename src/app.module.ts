@@ -2,7 +2,8 @@ import { Module } from '@nestjs/common';
 import { AuthorModule } from './modules/author/author.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CategoryModule } from './modules/category/category.module';
-import { IsUniqueConstraint } from './common/validation/is-unique-constraint';
+import { IsUniqueConstraint } from './common/validation/UniqueConstraint/is-unique-constraint';
+import { BookModule } from './modules/book/book.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { IsUniqueConstraint } from './common/validation/is-unique-constraint';
     }),
     AuthorModule,
     CategoryModule,
+    BookModule,
   ],
   controllers: [],
   providers: [IsUniqueConstraint],
