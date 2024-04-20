@@ -19,5 +19,5 @@ export class Author {
   register: Date;
 
   @OneToMany(() => Book, (book) => book.author)
-  books: Book;
+  books: Book[];
 }
