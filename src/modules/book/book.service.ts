@@ -25,7 +25,9 @@ export class BookService {
   }
 
   async findAll() {
-    const books = instanceToPlain(await this.bookRepo.find());
+    const books = instanceToPlain(
+      await this.bookRepo.find({ select: ['id', 'title'] }),
+    );
     return { books };
   }
 
