@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { AuthorController } from './author.controller';
-import { AuthorService } from './author.service';
+import { AuthorController } from '../author.controller';
+import { AuthorService } from '../author.service';
 
 describe('AuthorController', () => {
   let controller: AuthorController;
@@ -9,6 +9,7 @@ describe('AuthorController', () => {
     const module: TestingModule = await Test.createTestingModule({
       controllers: [AuthorController],
       providers: [AuthorService],
+      exports: [AuthorService],
     }).compile();
 
     controller = module.get<AuthorController>(AuthorController);
