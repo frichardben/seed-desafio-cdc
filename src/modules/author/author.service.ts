@@ -1,10 +1,10 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateAuthorDto } from './dto/create-author.dto';
-import { TypeOrmAuthorRepository } from './repositories/typeorm/typeorm.author.repository';
+import { AuthorRepository } from './repositories/author.repository';
 
 @Injectable()
 export class AuthorService {
-  constructor(private authorRepo: TypeOrmAuthorRepository) {}
+  constructor(private authorRepo: AuthorRepository) {}
 
   async create(createAuthorDto: CreateAuthorDto) {
     return await this.authorRepo.store(createAuthorDto);

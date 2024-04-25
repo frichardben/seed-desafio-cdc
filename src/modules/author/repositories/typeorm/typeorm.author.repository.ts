@@ -1,4 +1,3 @@
-import { Injectable } from '@nestjs/common';
 import { Repository } from 'typeorm';
 import { Author } from '../../entities/author.entity';
 import { AuthorRepository } from '../author.repository';
@@ -6,7 +5,6 @@ import { CreateAuthorDto } from '../../dto/create-author.dto';
 import { instanceToPlain } from 'class-transformer';
 import { InjectRepository } from '@nestjs/typeorm';
 
-// @Injectable()
 export class TypeOrmAuthorRepository implements AuthorRepository {
   constructor(
     @InjectRepository(Author)
