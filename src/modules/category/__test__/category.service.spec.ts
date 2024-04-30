@@ -54,11 +54,6 @@ describe('CategoryService', () => {
   it('should not find category by id', async () => {
     const categoryId = randomUUID();
 
-    const findCategory = await service.findOne(categoryId);
-
-    expect(findCategory).rejects.toThrow(NotFoundException);
-
-    expect(service.findOne(categoryId)).rejects.toThrow(NotFoundException);
     expect(() => service.findOne(categoryId)).rejects.toThrow(
       NotFoundException,
     );
