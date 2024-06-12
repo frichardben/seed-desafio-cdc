@@ -5,7 +5,7 @@ import {
   ValidatorConstraintInterface,
 } from 'class-validator';
 import { EntityManager } from 'typeorm';
-import { IsUniqueInterface } from '../../types/is-unique';
+import { IsUniqueInterface } from '@/common/types/is-unique';
 
 @ValidatorConstraint({ name: 'IsUniqueConstraint', async: true })
 @Injectable()

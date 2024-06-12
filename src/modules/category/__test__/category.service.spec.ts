@@ -1,5 +1,5 @@
 import { CategoryService } from '../category.service';
-import { InMemoryCategoryRepository } from './repository/in-memory/in-memory.repository';
+import { InMemoryCategoryRepository } from 'test/repositories/in-memory-category-repository';
 import { CreateCategoryDto } from '../dto/create-category.dto';
 import { randomUUID } from 'crypto';
 import { NotFoundException } from '@nestjs/common';

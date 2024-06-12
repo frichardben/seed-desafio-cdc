@@ -2,10 +2,8 @@ import { randomUUID } from 'crypto';
 import { instanceToPlain } from 'class-transformer';
 import { CreateAuthorDto } from '@/modules/author/dto/create-author.dto';
 import { Author } from '@/modules/author/entities/author.entity';
-import { AuthorRepository } from 'src/modules/author/repositories/author.repository';
-import { Injectable } from '@nestjs/common';
+import { AuthorRepository } from '@/modules/author/repositories/author.repository';
 
-@Injectable()
 export class InMemoryAuthorRepository implements AuthorRepository {
   public items: Author[] = [];
 

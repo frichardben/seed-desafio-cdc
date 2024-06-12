@@ -1,5 +1,6 @@
 import { AuthorService } from '../author.service';
-import { InMemoryAuthorRepository } from './repository/in-memory/in-memory.author.repository';
+import { InMemoryAuthorRepository } from 'test/repositories/in-memory-author-repository';
+
 import { CreateAuthorDto } from '../dto/create-author.dto';
 
 import { randomUUID } from 'crypto';
