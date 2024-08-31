@@ -76,7 +76,6 @@ describe('BookService', () => {
     expect(inMemoryBookRespository.items).toContainEqual(createBookInMemory);
   });
 
-
   it('should not find book by id', async () => {
     const bookId = randomUUID();
 
