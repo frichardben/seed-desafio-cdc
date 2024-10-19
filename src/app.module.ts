@@ -5,6 +5,7 @@ import { CategoryModule } from './modules/category/category.module';
 import { IsUniqueConstraint } from './common/validation/UniqueConstraint/is-unique-constraint';
 import { BookModule } from './modules/book/book.module';
 import { CountryModule } from '@/modules/locale/country/country.module';
+import { StateModule } from '@/modules/locale/state/state.module';
 
 @Module({
   imports: [
@@ -19,6 +20,7 @@ import { CountryModule } from '@/modules/locale/country/country.module';
     CategoryModule,
     BookModule,
     CountryModule,
+    StateModule,
   ],
   controllers: [],
   providers: [IsUniqueConstraint],
