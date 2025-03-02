@@ -13,15 +13,15 @@ export class CreateTableBooks1711759077417 implements MigrationInterface {
           },
           {
             name: 'title',
-            type: 'vachar',
+            type: 'varchar',
           },
           {
             name: 'abstract',
-            type: 'vachar',
+            type: 'varchar',
           },
           {
             name: 'summary',
-            type: 'vachar',
+            type: 'varchar',
           },
           {
             name: 'price',
@@ -33,7 +33,7 @@ export class CreateTableBooks1711759077417 implements MigrationInterface {
           },
           {
             name: 'isbn',
-            type: 'vachar',
+            type: 'varchar',
           },
           {
             name: 'releaseDate',

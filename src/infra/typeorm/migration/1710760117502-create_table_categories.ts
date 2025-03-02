@@ -13,7 +13,7 @@ export class CreateTableCategories1710760117502 implements MigrationInterface {
           },
           {
             name: 'name',
-            type: 'vachar',
+            type: 'varchar',
           },
         ],
       }),
