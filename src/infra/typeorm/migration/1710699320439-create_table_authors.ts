@@ -13,15 +13,15 @@ export class CreateTableAuthors1710699320439 implements MigrationInterface {
           },
           {
             name: 'name',
-            type: 'vachar',
+            type: 'varchar',
           },
           {
             name: 'email',
-            type: 'vachar',
+            type: 'varchar',
           },
           {
             name: 'description',
-            type: 'vachar',
+            type: 'varchar',
           },
           {
             name: 'register',
