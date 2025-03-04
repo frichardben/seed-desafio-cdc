@@ -1,0 +1,14 @@
+node_modules/
+*.log
+.env
+dist/
+build/
+.vscode/
+.idea/
+Dockerfile
+docker-compose.yml
+.git/
+.gitignore
+package-lock.json
+.cache/
+.temp/
